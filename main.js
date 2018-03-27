@@ -1,6 +1,5 @@
 const Rx = require('rxjs/Rx')
 
-const Keyboard = require('./vendor/node-keylogger/index')
 const KeyboardEvents = require('./lib/keyboard-events')
 
 run(process.env.KEYBOARD_DEVICE)
