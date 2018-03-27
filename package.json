@@ -6,12 +6,15 @@
   "bin": "main.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "pkg package.json -t node9-linux-armv7 --no-bytecode --out-path out"
+    "build": "pkg package.json -t node9-linux-armv7 --no-bytecode --out-path out",
+    "deploy": "scp out/tot-tapes pi@10.0.0.20:/home/pi"
   },
   "author": "Kaleb Lape",
   "license": "MIT",
   "pkg": {
-    "targets": ["node9-linux-armv7"],
+    "targets": [
+      "node9-linux-armv7"
+    ],
     "arch": "armv7",
     "nodeRange": "latest",
     "platform": "linux"
