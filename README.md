@@ -13,7 +13,9 @@ Actually playing music. 😁
 - `npm run build`
 - `KEYBOARD_DEVICE=<path to a stream of events> node main.js`
   - To see it running without actual events, set `KEYBOARD_DEVICE` to `sample-data.bin`. (`KEYBOARD_DEVICE=sample-data.bin node main.js`)
+  - *FIXME*: Since audio playing was added, the instructions above are broken.
+    - *WORKAROUND*: Before testing place `13012062.mp3` and `21804289.mp3` in `$CWD/tunes`. You'll also need an executable in your path called `play` which can be called like `play -v 0.2 music.mp3`.
 
 ## Deploy
 
-- `npm run deploy` (FIXME: server ssh host is not configurable 😬)
+- `npm run deploy` (*FIXME*: server ssh host is not configurable 😬)
