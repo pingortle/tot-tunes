@@ -5,7 +5,7 @@
   "main": "main.js",
   "bin": "main.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "PATH=$PATH:bin KEYBOARD_DEVICE=sample-data.bin node main.js",
     "build": "pkg package.json -t node9-linux-armv7 --no-bytecode --out-path out",
     "deploy": "scp out/tot-tunes pi@10.0.0.20:~/"
   },
