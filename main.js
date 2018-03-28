@@ -4,9 +4,10 @@ const Rx = require('rxjs/Rx')
 
 const KeyboardEvents = require('./lib/keyboard-events')
 
-run(process.env.KEYBOARD_DEVICE)
 
-async function run(device) {
+run(process.env.KEYBOARD_DEVICE, process.env.TUNES_DIRECTORY)
+
+async function run(device, tunesDirectory = `${process.cwd()}/tunes`) {
   console.log(`listening on ${device}`)
   const keyboard = new KeyboardEvents(device).listen()
 
@@ -19,10 +20,13 @@ async function run(device) {
 
   let child = { kill: () => {} }
 
-  await lines.forEach(events => {
+  lines.forEach(events => {
       child.kill(9)
       const code = events.map(event => event.key.split('_')[1]).join('')
-      child = spawn('play', ['-v', '0.2', `${process.cwd()}/tunes/${code}.mp3`])
+      console.log(`received code: "${code}"`)
+      mp3 = `${tunesDirectory}/${code}.mp3`
+      child = spawn('play', ['-v', '0.1', mp3])
+      console.log(`playing "${mp3}"...`)
       child.on('error', console.error)
-    })
+    }).catch(console.error)
 }
