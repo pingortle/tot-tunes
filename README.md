@@ -2,7 +2,7 @@
 
 ## Concept 🤔
 ### [Inspiration](https://blog.testdouble.com/posts/2018-02-20-music-cards)
-Kids can play their favorite music or learn using advanced talking flash cards. This service ([plus](http://a.co/j8Kgw02) [a few](http://a.co/1Yy2d8M) [goodies](http://a.co/fXV2Fwh)) turns your linux device into a toddler DJ station.
+Kids can play their favorite music or learn using advanced talking flash cards. This service ([plus](http://a.co/cCXmWU7) [a few](http://a.co/1Yy2d8M) [goodies](http://a.co/fXV2Fwh)) turns your linux device into a toddler DJ station.
 
 ## Play 🔊🎶 👶
 
