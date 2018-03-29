@@ -24,9 +24,10 @@ async function run(device, tunesDirectory = `${process.cwd()}/tunes`) {
       child.kill(9)
       const code = events.map(event => event.key.split('_')[1]).join('')
       console.log(`received code: "${code}"`)
-      mp3 = `${tunesDirectory}/${code}.mp3`
-      child = spawn('play', ['-v', '0.1', mp3])
+      const mp3 = `${tunesDirectory}/${code}.mp3`
+      child = spawn('play', ['-v', '0.2', mp3], { stdio: 'ignore' })
       console.log(`playing "${mp3}"...`)
       child.on('error', console.error)
+      child.on('exit', (code, signal) => console.log(`stopped playing "${mp3}"... code: ${code}, signal: ${signal}`))
     }).catch(console.error)
 }
