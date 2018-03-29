@@ -1,0 +1,9 @@
+#!/bin/sh
+
+YT_URL=$1
+MP4=tunes/$2.mp4
+MP3=tunes/$2.mp3
+
+npx ytdl $YT_URL > $MP4
+ffmpeg -i $MP4 $MP3
+scp $MP3 pi@10.0.0.20:~/$MP3
