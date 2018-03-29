@@ -1,13 +1,16 @@
-# Tot Tunes - Music Player For Kids 3+ [WIP]
+# Tot Tunes - A Music Player for Tiny Tots
 
-## Concept
+## Concept 🤔
 ### [Inspiration](https://blog.testdouble.com/posts/2018-02-20-music-cards)
 Kids can play their favorite music or learn using advanced talking flash cards. This service ([plus](http://a.co/j8Kgw02) [a few](http://a.co/1Yy2d8M) [goodies](http://a.co/fXV2Fwh)) turns your linux device into a toddler DJ station.
 
-### Coming Soon™
-Actually playing music. 😁
+## Play 🔊🎶 👶
 
-## Develop
+- Run `bin/yt-import <youtube url> <keycard id>` to download a youtube video, convert it to MP3 and copy it to the Tot Tunes device for playback.
+- Swipe your new music card.
+- Enjoy your Tot Tunes!
+
+## Develop 🎞
 
 - `npm install`
 - testing (requires `13012062.mp3` and `21804289.mp3` in `$PWD/tunes`)
@@ -17,7 +20,7 @@ Actually playing music. 😁
   - *FIXME*: Since audio playing was added, the instructions above are broken.
     - *WORKAROUND*: Before testing place `13012062.mp3` and `21804289.mp3` in `$PWD/tunes`. You'll also need an executable in your path called `play` which can be called like `play -v 0.2 music.mp3`. `afplay` works for macOS. A shim is available in the project `bin` directory, so a command like `PATH=$PATH:bin KEYBOARD_DEVICE=sample-data.bin node main.js` should work.
 
-## Deploy
+## Deploy 🛳
 
 - `npm run build && npm run deploy` (*FIXME*: server ssh host is not configurable 😬)
   - deploy script depends on a `systemd` service called `tot-tunes.service`
