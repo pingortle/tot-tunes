@@ -33,7 +33,7 @@ Kids can play their favorite music or learn using advanced talking flash cards. 
 Description=Tot Tunes
 
 [Service]
-User pi
+User=pi
 ExecStart=/usr/local/bin/tot-tunes
 Type=simple
 Restart=always
