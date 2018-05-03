@@ -44,7 +44,7 @@ WantedBy=multi-user.target
 
 ### Example `tot-tunes` Service Script
 
-`$ cat /etc/systemd/system/tot-tunes.service`⤵️
+`$ cat /home/pi/tot-tunes`⤵️
 
 ```
 #!/bin/sh
