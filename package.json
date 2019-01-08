@@ -5,7 +5,8 @@
   "main": "main.js",
   "bin": "main.js",
   "scripts": {
-    "test": "PATH=$PATH:bin KEYBOARD_DEVICE=sample-data.bin node main.js",
+    "test": "teenytest test/lib/**/*.test.js",
+    "test:deprecated": "PATH=$PATH:bin KEYBOARD_DEVICE=sample-data.bin node main.js",
     "build": "pkg package.json -t node9-linux-armv7 --no-bytecode --out-path out",
     "deploy": "ssh pi@10.0.0.20 'sudo systemctl stop tot-tunes.service' && scp out/tot-tunes pi@10.0.0.20:~/ && ssh pi@10.0.0.20 'sudo systemctl start tot-tunes.service'",
     "build-deploy": "npm run build && npm run deploy"
@@ -22,7 +23,8 @@
   },
   "devDependencies": {
     "pkg": "^4.3.4",
-    "standard": "^12.0.1"
+    "standard": "^12.0.1",
+    "teenytest": "^5.1.1"
   },
   "dependencies": {
     "rxjs": "^5.5.8"
