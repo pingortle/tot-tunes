@@ -7,8 +7,8 @@
   "scripts": {
     "test": "teenytest test/lib/**/*.test.js",
     "test:deprecated": "PATH=$PATH:bin KEYBOARD_DEVICE=sample-data.bin node main.js",
-    "build": "pkg package.json -t node9-linux-armv7 --no-bytecode --out-path out",
-    "deploy": "ssh pi@10.0.0.20 'sudo systemctl stop tot-tunes.service' && scp out/tot-tunes pi@10.0.0.20:~/ && ssh pi@10.0.0.20 'sudo systemctl start tot-tunes.service'",
+    "build": "pkg package.json -t node10-linux-armv7 --no-bytecode --out-path out",
+    "deploy": "ssh pi@raspberrypi.local 'sudo systemctl stop tot-tunes.service' && scp out/tot-tunes pi@raspberrypi.local:~/ && ssh pi@raspberrypi.local 'sudo systemctl start tot-tunes.service'",
     "build-deploy": "npm run build && npm run deploy"
   },
   "author": "Kaleb Lape",
