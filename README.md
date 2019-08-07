@@ -12,6 +12,7 @@ Kids can play their favorite music or learn using advanced talking flash cards. 
 
 ## Develop 🎞
 
+- `brew bundle`
 - `npm install`
 - testing (requires `13012062.mp3` and `21804289.mp3` in `$PWD/tunes`)
   - macOS: `npm test`
