@@ -5,7 +5,7 @@
   "main": "index.js",
   "bin": "index.js",
   "scripts": {
-    "test": "teenytest test/lib/**/*.test.js",
+    "test": "teenytest",
     "test:deprecated": "KEYBOARD_DEVICE=sample-data.bin node index.js",
     "build": "pkg package.json -t node10-linux-armv7 --no-bytecode --out-path out",
     "deploy": "ssh pi@raspberrypi.local 'sudo systemctl stop tot-tunes.service' && scp out/tot-tunes pi@raspberrypi.local:~/ && ssh pi@raspberrypi.local 'sudo systemctl start tot-tunes.service'",
