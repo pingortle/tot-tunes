@@ -2,11 +2,11 @@
   "name": "tot-tunes",
   "version": "0.0.0",
   "description": "",
-  "main": "main.js",
-  "bin": "main.js",
+  "main": "index.js",
+  "bin": "index.js",
   "scripts": {
     "test": "teenytest test/lib/**/*.test.js",
-    "test:deprecated": "PATH=$PATH:bin KEYBOARD_DEVICE=sample-data.bin node main.js",
+    "test:deprecated": "KEYBOARD_DEVICE=sample-data.bin node index.js",
     "build": "pkg package.json -t node10-linux-armv7 --no-bytecode --out-path out",
     "deploy": "ssh pi@raspberrypi.local 'sudo systemctl stop tot-tunes.service' && scp out/tot-tunes pi@raspberrypi.local:~/ && ssh pi@raspberrypi.local 'sudo systemctl start tot-tunes.service'",
     "build-deploy": "npm run build && npm run deploy"
@@ -21,12 +21,21 @@
     "nodeRange": "latest",
     "platform": "linux"
   },
+  "teenytest": {
+    "plugins": [
+      "teenytest-promise"
+    ]
+  },
   "devDependencies": {
     "pkg": "^4.3.4",
+    "prettier-standard": "^8.0.1",
     "standard": "^12.0.1",
-    "teenytest": "^5.1.1"
+    "teenytest": "^5.1.1",
+    "teenytest-promise": "^1.0.0",
+    "testdouble": "^3.9.2"
   },
   "dependencies": {
+    "@cycle/run": "^5.2.0",
     "rxjs": "^5.5.8",
     "xstream": "^11.7.0"
   }
