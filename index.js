@@ -7,6 +7,6 @@ const log = require('./lib/drivers/log')
 
 run(main, {
   codes: fetchCodes(process.env.KEYBOARD_DEVICE),
-  play: playWithSox(process.env.TUNES_DIRECTORY),
+  play: playWithSox(),
   log: log()
 })
