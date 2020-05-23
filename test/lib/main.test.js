@@ -1,15 +1,19 @@
+/* globals streamToPromise, xs */
+
 const assert = require('assert')
 const main = require('../../lib/main')
 
 module.exports = {
-  passFilePathsToPlay () {
+  async passFilePathsToPlay () {
     const sources = {
-      codes: ['123', '456']
+      codes: xs.of('123', '456'),
+      play: xs.periodic(50)
     }
+
     const result = main(sources)
-    assert.deepStrictEqual(result.play, [
-      `${process.cwd()}/tunes/123.mp3`,
-      `${process.cwd()}/tunes/456.mp3`
+
+    assert.deepStrictEqual(await streamToPromise(result.play), [
+      `${process.cwd()}/tunes/123.mp3`
     ])
   }
 }

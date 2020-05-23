@@ -3,11 +3,16 @@
 global.td = require('testdouble')
 global.xs = require('xstream').default
 
-global.streamToPromise = function streamToPromise (stream) {
+const STREAM_LISTENER_METHODS = {
+  active: 'addListener',
+  passive: 'setDebugListener'
+}
+
+global.streamToPromise = function streamToPromise (stream, method = 'active') {
   return new Promise((resolve, reject) => {
     const events = []
 
-    stream.setDebugListener({
+    stream[STREAM_LISTENER_METHODS[method]]({
       next (event) {
         events.push(event)
       },
