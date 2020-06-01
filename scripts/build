@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+esbuild --platform=node --bundle index.js --outdir=out
+cat shipping/preamble.js out/index.js > out/tot-tunes
+chmod +x out/tot-tunes

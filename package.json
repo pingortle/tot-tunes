@@ -6,36 +6,33 @@
   "bin": "index.js",
   "scripts": {
     "test": "teenytest",
+    "build": "scripty",
+    "deploy": "scripty",
+    "ship-it": "scripty",
+    "deploy:deprecated": "ssh pi@raspberrypi.local 'sudo systemctl stop tot-tunes.service' && scp out/tot-tunes pi@raspberrypi.local:~/ && ssh pi@raspberrypi.local 'sudo systemctl start tot-tunes.service'",
+    "build-deploy:deprecated": "npm run build:deprecated && npm run deploy:deprecated",
     "test:deprecated": "KEYBOARD_DEVICE=sample-data.bin node index.js",
-    "build": "pkg package.json -t node10-linux-armv7 --no-bytecode --out-path out",
-    "deploy": "ssh pi@raspberrypi.local 'sudo systemctl stop tot-tunes.service' && scp out/tot-tunes pi@raspberrypi.local:~/ && ssh pi@raspberrypi.local 'sudo systemctl start tot-tunes.service'",
-    "build-deploy": "npm run build && npm run deploy"
+    "build:deprecated": "pkg package.json -t node10-linux-armv7 --no-bytecode --out-path out"
   },
   "author": "Kaleb Lape",
   "license": "MIT",
-  "pkg": {
-    "targets": [
-      "node9-linux-armv7"
-    ],
-    "arch": "armv7",
-    "nodeRange": "latest",
-    "platform": "linux"
-  },
   "teenytest": {
     "plugins": [
       "teenytest-promise"
     ]
   },
   "devDependencies": {
-    "pkg": "^4.4.0",
+    "esbuild": "^0.4.3",
     "prettier-standard": "^8.0.1",
+    "scripty": "^2.0.0",
     "standard": "^12.0.1",
     "teenytest": "^5.2.0",
     "teenytest-promise": "^1.0.0",
     "testdouble": "^3.12.3"
   },
   "dependencies": {
-    "@cycle/run": "^5.2.0",
-    "xstream": "^11.11.0"
+    "@cycle/run": "^5.4.0",
+    "polo": "^0.8.1",
+    "xstream": "^11.12.0"
   }
 }
