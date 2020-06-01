@@ -3,6 +3,6 @@
 YT_URL=$1
 MP3=tunes/$2.mp3
 
-npx ytdl "$YT_URL" |
+npx ytdl --filter audioonly "$YT_URL" |
   ffmpeg -i pipe:0 -filter:a loudnorm "$MP3"
 scp "$MP3" pi@raspberrypi.local:~/"$MP3"
