@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+set -e
+
+scripts/debian/template
+mkdir -p out/deb/usr/bin
+cp out/$npm_package_name out/deb/usr/bin
+dpkg --build out/deb out

@@ -3,4 +3,5 @@
 set -euo pipefail
 
 scripts/build
+scripts/debian/index
 scripts/deploy "$@"

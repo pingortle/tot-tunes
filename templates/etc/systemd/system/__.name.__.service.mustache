@@ -1,0 +1,11 @@
+[Unit]
+Description={{description}}
+
+[Service]
+User={{name}}
+ExecStart=/usr/bin/{{name}}
+Type=simple
+Restart=always
+
+[Install]
+WantedBy=multi-user.target

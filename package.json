@@ -1,7 +1,7 @@
 {
   "name": "tot-tunes",
   "version": "0.0.0",
-  "description": "",
+  "description": "Tot Tunes 🎵",
   "main": "index.js",
   "bin": "index.js",
   "scripts": {
@@ -9,6 +9,8 @@
     "build": "scripty",
     "deploy": "scripty",
     "ship-it": "scripty",
+    "debian": "scripty",
+    "debian:template": "scripty",
     "deploy:deprecated": "ssh pi@raspberrypi.local 'sudo systemctl stop tot-tunes.service' && scp out/tot-tunes pi@raspberrypi.local:~/ && ssh pi@raspberrypi.local 'sudo systemctl start tot-tunes.service'",
     "build-deploy:deprecated": "npm run build:deprecated && npm run deploy:deprecated",
     "test:deprecated": "KEYBOARD_DEVICE=sample-data.bin node index.js",
@@ -23,6 +25,7 @@
   },
   "devDependencies": {
     "esbuild": "^0.4.3",
+    "mustache": "^4.0.1",
     "prettier-standard": "^8.0.1",
     "scripty": "^2.0.0",
     "standard": "^12.0.1",

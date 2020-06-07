@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+name=${npm_package_name-}
+version=${npm_package_version-}
+host="${1-}"
+deb_filename="${name}_${version}_armhf.deb"
+
+scp "out/$deb_filename" \
+  $host:~/
+ssh $host "sudo dpkg -i $deb_filename"
