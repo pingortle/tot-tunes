@@ -1,13 +1,18 @@
 /* globals streamToPromise, xs */
 
 const assert = require('assert')
+const delay = require('xstream/extra/delay').default
 const main = require('../../lib/main')
 
 module.exports = {
   async passFilePathsToPlay () {
+    const stream = xs.of('123', '456')
     const sources = {
-      codes: xs.of('123', '456'),
-      play: xs.periodic(50)
+      codes: {
+        stream,
+        complete: stream.compose(delay(1))
+      },
+      play: xs.periodic(10)
     }
 
     const result = main(sources)
