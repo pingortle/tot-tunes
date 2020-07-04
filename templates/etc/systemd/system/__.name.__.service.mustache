@@ -4,6 +4,7 @@ Description={{description}}
 [Service]
 User={{name}}
 ExecStart=/usr/bin/{{name}}
+Environment="TUNES_DIRECTORY=/tunes"
 Type=simple
 Restart=always
 

@@ -1,11 +1,13 @@
 #!/usr/bin/env bash
 
 adduser --system \
-  --group input \
   --quiet \
   --disabled-login \
   --no-create-home \
   {{name}}
+adduser {{name}} audio
+adduser {{name}} input
+
 systemctl daemon-reload
 systemctl enable {{name}}.service
 service {{name}} restart || service {{name}} start
